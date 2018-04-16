@@ -1,6 +1,6 @@
 {
   "name": "HttpJson",
-  "id": "grafana-http-json-datasource",
+  "id": "exozet-http-json-datasource",
   "type": "datasource",
 
   "partials": {
