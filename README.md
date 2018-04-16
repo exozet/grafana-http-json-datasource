@@ -25,7 +25,7 @@ information.
 If you want to install the latest version from github, run:
 
 ```
-sudo grafana-cli --pluginUrl https://github.com/grafana/simple-json-datasource/archive/master.zip plugins install exozet-http-json-datasource 
+sudo grafana-cli --pluginUrl https://github.com/exozet/grafana-http-json-datasource/archive/master.zip plugins install exozet-http-json-datasource 
 sudo service grafana-server restart
 ```
 
