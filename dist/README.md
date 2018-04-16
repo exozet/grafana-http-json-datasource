@@ -1,8 +1,7 @@
-## Simple JSON Datasource - a generic backend datasource
+## Grafana HTTP JSON Datasource - a generic backend datasource
 
-More documentation about datasource plugins can be found in the [Docs](https://github.com/grafana/grafana/blob/master/docs/sources/plugins/developing/datasources.md).
-
-This also serves as a living example implementation of a datasource.
+This is a generic http json data source. It is based on the official [simple json datasource](https://github.com/grafana/simple-json-datasource)
+plugin by grafana labs. All features are also submitted as PR to the official plugin.
 
 Your backend needs to implement 4 urls:
 
@@ -15,14 +14,16 @@ Your backend needs to implement 4 urls:
 
 To install this plugin using the `grafana-cli` tool:
 ```
-sudo grafana-cli plugins install grafana-simple-json-datasource
+sudo grafana-cli plugins install grafana-http-json-datasource
 sudo service grafana-server restart
 ```
-See [here](https://grafana.com/plugins/grafana-simple-json-datasource/installation) for more
+See [here](https://grafana.com/plugins/grafana-http-json-datasource/installation) for more
 information.
 
 ### Example backend implementations
+
 - https://github.com/bergquist/fake-simple-json-datasource
+- https://github.com/smcquay/jsonds
 
 ### Query API
 
@@ -94,7 +95,7 @@ If the metric selected is `"type": "table"`, an example `table` response:
 
 ### Annotation API
 
-The annotation request from the Simple JSON Datasource is a POST request to
+The annotation request to the backend is a POST request to
 the /annotations endpoint in your datasource. The JSON request body looks like this:
 ``` javascript
 {
@@ -108,7 +109,7 @@ the /annotations endpoint in your datasource. The JSON request body looks like t
   },
   "annotation": {
     "name": "deploy",
-    "datasource": "Simple JSON Datasource",
+    "datasource": "HTTP JSON Datasource",
     "iconColor": "rgba(255, 96, 96, 1)",
     "enable": true,
     "query": "#deploy"
@@ -193,6 +194,6 @@ This plugin requires node 6.10.0
 
 ### If using Grafana 2.6
 NOTE!
-for grafana 2.6 please use [this version](https://github.com/grafana/simple-json-datasource/commit/b78720f6e00c115203d8f4c0e81ccd3c16001f94)
+for grafana 2.6 please use [this version](https://github.com/grafana/simple-json-datasource/commit/b78720f6e00c115203d8f4c0e81ccd3c16001f94) of the official simple-json-datasource plugin.
 
 Copy the data source you want to /public/app/plugins/datasource/. Then restart grafana-server. The new data source should now be available in the data source type dropdown in the Add Data Source View.
