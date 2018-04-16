@@ -16,7 +16,7 @@ Your backend needs to implement 4 urls:
 
 To install this plugin using the `grafana-cli` tool:
 ```
-sudo grafana-cli plugins install grafana-http-json-datasource
+sudo grafana-cli plugins install exozet-http-json-datasource
 sudo service grafana-server restart
 ```
 See [here](https://grafana.com/plugins/grafana-http-json-datasource/installation) for more
