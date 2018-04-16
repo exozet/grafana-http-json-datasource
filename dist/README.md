@@ -22,6 +22,14 @@ sudo service grafana-server restart
 See [here](https://grafana.com/plugins/grafana-http-json-datasource/installation) for more
 information.
 
+If you want to install the latest version from github, run:
+
+```
+sudo grafana-cli --pluginUrl https://github.com/grafana/simple-json-datasource/archive/master.zip plugins install exozet-http-json-datasource 
+sudo service grafana-server restart
+```
+
+
 ### Example backend implementations
 
 - https://github.com/bergquist/fake-simple-json-datasource
