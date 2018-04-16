@@ -9,6 +9,8 @@ Your backend needs to implement 4 urls:
  * `/search` used by the find metric options on the query tab in panels.
  * `/query` should return metrics based on input.
  * `/annotations` should return annotations.
+ * `/tag-keys` should return tag keys for ad hoc filters.
+ * `/tag-values` should return tag values for ad hoc filters.
 
 ## Installation
 
@@ -49,6 +51,11 @@ Example `timeserie` request
      { "target": "upper_50", "refId": "A", "type": "timeserie" },
      { "target": "upper_75", "refId": "B", "type": "timeserie" }
   ],
+  "adhocFilters": [
+    "key": "City"
+    "operator": "=",
+    "value": "Berlin"
+  ]
   "format": "json",
   "maxDataPoints": 550
 }
@@ -161,6 +168,37 @@ Example map response
 [ { "text" :"upper_25", "value": 1}, { "text" :"upper_75", "value": 2} ]
 ```
 
+### Tag Keys API
+
+Example request
+``` javascript
+{ }
+```
+
+The tag keys api returns:
+```javascript
+[
+    {"type":"string","text":"City"},
+    {"type":"string","text":"Country"}
+]
+```
+
+### Tag Values API
+
+Example request
+``` javascript
+{"key": "City"}
+```
+
+The tag values api returns:
+```javascript
+[
+    {'text': 'Eins!'},
+    {'text': 'Zwei'},
+    {'text': 'Drei!'}
+]
+```
+
 ### Dev setup
 
 This plugin requires node 6.10.0
@@ -173,6 +211,8 @@ This plugin requires node 6.10.0
 
 1.4.0
 
+- added tag-keys + tag-values api
+- added adHocFilters parameter to query body
 - initial fork from official [simple json datasource](https://github.com/grafana/simple-json-datasource)
 
 ### If using Grafana 2.6
